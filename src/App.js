@@ -104,7 +104,7 @@ function App() {
     <div className="container">
       <Routes>
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/" element={<Textform head="Text converter" mode={mode} showAlert={showAlert} btncolor={btncolor} />} />
+        <Route exact path="/TextUtility-React" element={<Textform head="Text converter" mode={mode} showAlert={showAlert} btncolor={btncolor} />} />
       </Routes>
 
     </div>
