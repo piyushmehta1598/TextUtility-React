@@ -19,7 +19,6 @@ const handleUpclick=()=>
 }
 const handleLoclick=()=>
 {
-  // console.log("clicked here");
  let newtext=text.toLowerCase();
   settext(newtext);
   props.showAlert("Converted to Lowercase", "success")
@@ -27,7 +26,6 @@ const handleLoclick=()=>
 }
 const handlecapclick=()=>
 {
-  // console.log("clicked here");
   
  let newtext=text.charAt(0).toUpperCase()+text.slice(1);
   settext(newtext);
@@ -36,7 +34,6 @@ const handlecapclick=()=>
 }
 const handleclearclick=()=>
 {
-  // console.log("clicked here");
  let newtext='';
   settext(newtext);
   props.showAlert("Text has been Cleared", "success")
@@ -45,17 +42,18 @@ const handleclearclick=()=>
 
 const handleCopy=()=>
 {
-    let text=document.getElementById("form");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    // let text=document.getElementById("form");
+    // text.select();
+    // navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert("Text has been Copied", "success")
 }
 
 const handleonchange=(event)=>
 {
   console.log("on change ");
-  settext(event.target.value)  // you can add text with value with the help of this event.target.value
+  settext(event.target.value)  // you can add text with value with the help of this event.target.value.
 }
   return (
   <>
@@ -72,7 +70,7 @@ const handleonchange=(event)=>
 </div>
 <div className="container my-2" style={{color:props.mode==='dark'?'white':'black' }} >
   <h1>Text Details</h1>
-  <p>Total words {text.split(" ").filter((element)=>{return element.length!=0}).length} and Total character {text.length}</p>
+  <p>Total words {text.split(/\s+/).filter((element)=>{return element.length!=0}).length} and Total character {text.length}</p>
   <p>Time of Reading {text===""?0:0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length}</p>
   <h3>Preview</h3>
   <p>{text.length===0?"Enter your text & preview it.":text}</p>
